@@ -1,0 +1,1 @@
+<button class="btn btn-primary mt-auto" onclick="fetch('{{ route('order.update', ['id' => $order, 'status' => 'new']) }}', {method: 'PATCH', headers: {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-CSRF-TOKEN': '{{csrf_token()}}'}}).then(res => res.json()).then(res => {location.reload()})">Confirm</button>

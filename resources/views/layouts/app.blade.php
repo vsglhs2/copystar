@@ -54,8 +54,8 @@
 
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                         
-                                        <a class="dropdown-item" href="{{ route('basket') }}">Basket</a>
-                                        <a class="dropdown-item" href="{{ route('orders') }}">Orders</a>
+                                        <a class="dropdown-item" href="{{ route('basket.index') }}">Basket</a>
+                                        <a class="dropdown-item" href="{{ route('order.index') }}">Orders</a>
                                         @can('isAdmin', auth()->user())
                                             <a class="dropdown-item" href="{{ route('admin.product.index') }}">Admin panel</a>
                                         @endcan

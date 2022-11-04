@@ -49,7 +49,7 @@
                         <h2 class="card-title">{{ $product->title }}</h2>
                         <p class="card-text"><span class="me-2">Production year:</span>{{ $product->cost }}</p>
                         @can('isUser', auth()->user())
-                            <a href="#" class="btn btn-primary mt-auto">Add to basket</a>
+                            @include('includes.basket.add', ['product' => $product->id, 'amount' => 1, 'text' => 'Add to basket'])
                         @endcan
                     </div>
                 </div>                

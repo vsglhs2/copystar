@@ -33,8 +33,12 @@ Route::prefix('admin')->group(function() {
 });
 
 Route::middleware('user')->group(function() {
-    Route::get('/basket', App\Http\Controllers\BasketController::class)->name('basket');
-    Route::get('/orders', App\Http\Controllers\OrdersController::class)->name('orders');
+    Route::get('/basket', App\Http\Controllers\Basket\IndexController::class)->name('basket.index');
+    Route::patch('/basket/update', App\Http\Controllers\Basket\UpdateController::class)->name('basket.update');
+    Route::delete('/orders', App\Http\Controllers\Order\DestroyController::class)->name('order.destroy');
+    Route::get('/orders', App\Http\Controllers\Order\IndexController::class)->name('order.index');
+    Route::patch('/orders/update', App\Http\Controllers\Order\UpdateController::class)->name('order.update');
+    Route::get('/orders/{order}', App\Http\Controllers\Order\ShowController::class)->name('order.show');
 });
 
 

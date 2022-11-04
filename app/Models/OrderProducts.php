@@ -10,5 +10,5 @@ class OrderProducts extends Model
     use HasFactory;
 
     protected $guarded = false;
-    protected $table = 'orders';
+    protected $table = 'order_products';
 }

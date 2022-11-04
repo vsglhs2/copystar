@@ -18,7 +18,9 @@
                 </ul>    
                 <div class="card-body">
                     <a href="{{route('catalog.index')}}" class="btn btn-primary me-2">Back</a>
-                    <a href="#" class="btn btn-primary">Add to basket</a>
+                    @can('isUser', auth()->user())
+                        @include('includes.basket.add', ['product' => $product->id, 'amount' => 1, 'text' => 'Add to basket'])
+                    @endcan
                 </div>                
             </div>
             <div class="col-md-6">
