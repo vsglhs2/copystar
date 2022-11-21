@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container justify-content-center">
@@ -18,9 +18,12 @@
                 </ul>    
                 <div class="card-body">
                     <a href="{{ url()->previous() }}" class="btn btn-primary me-2">Back</a>
-                    @can('isUser', auth()->user())
-                        @include('includes.basket.add', ['product' => $product->id, 'amount' => 1, 'text' => 'Add to basket'])
-                    @endcan
+                    <a href="{{ route('admin.product.edit', $product->id) }}" class="btn btn-primary me-2">Edit</a>
+                    <form action="{{ route('admin.product.destroy', ['product' => $product->id]) }}" method="post" style="display: inline-block">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                    </form>
                 </div>                
             </div>
             <div class="col-md-6">

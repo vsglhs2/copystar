@@ -23,8 +23,18 @@
                 <td>
                     @include('includes.basket.add', ['product' => $orderProduct->product_id, 'amount' => 1, 'text' => '+'])
                 </td>
-                <td>{{$orderProduct->cost * $orderProduct->amount}}</td>
+                <td>{{$orderProduct->total}}</td>
             </tr>
         @endforeach
     </tbody>
+    <tfoot>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>{{$total}}</th>
+    </tfoot>
+
   </table>

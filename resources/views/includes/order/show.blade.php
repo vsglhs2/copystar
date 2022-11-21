@@ -15,8 +15,17 @@
                 <td><a href="{{ route('catalog.show', $orderProduct->id) }}">{{$orderProduct->title}}</a></td>
                 <td>{{$orderProduct->cost}}</td>
                 <td>{{$orderProduct->amount}}</td>
-                <td>{{$orderProduct->cost * $orderProduct->amount}}</td>
+                <td>{{$orderProduct->total}}</td>
             </tr>
         @endforeach
     </tbody>
+    <tfoot>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>{{$total}}</th>
+      </tr>
+    </tfoot>
   </table>

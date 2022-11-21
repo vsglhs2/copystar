@@ -16,7 +16,7 @@
                 </select>
 
                 <label class="form-label">Year order:</label>
-                <select class="form-select col-2 me-2 mb-2" name="order">
+                <select class="form-select col-2 me-2 mb-3" name="order">
                     <option value="">None</option>
                     <option value="year-up" {{ isset($data['order']) && $data['order'] == 'year-up' ? 'selected' : '' }}>
                         Year up order</option>
@@ -32,7 +32,7 @@
                         Cost down order</option>
                 </select>
 
-                <div class="col-2">
+                <div class="col-10">
                     <button type="submit" class="btn btn-primary me-2">Filter</button>
                     <a href="{{ route('catalog.index') }}" class="btn btn-primary">Reset</a>                    
                 </div>
@@ -43,7 +43,7 @@
             <div class="col">
                 <div class='card h-100'>
                     <a href="{{ route('catalog.show', $product->id) }}">
-                        <img src="{{ $product->imageUrl }}" alt="" class="card-img-top">
+                        <img src="{{ $product->imageUrl }}" alt="" class="card-img-top" style="height: 25vh; object-fit: cover">
                     </a>
                     <div class="card-body d-flex flex-column">
                         <h2 class="card-title">{{ $product->title }}</h2>

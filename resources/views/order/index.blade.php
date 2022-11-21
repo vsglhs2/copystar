@@ -8,14 +8,16 @@
             <th scope="col">#</th>
             <th scope="col">Number</th>
             <th scope="col">Status</th>
+            <th scope="col">Show</th>
           </tr>
         </thead>
         <tbody>    
             @foreach ($orders as $order)
                 <tr style="vertical-align: middle">
                     <th scope="row">{{$loop->iteration}}</th>
-                    <td><a href="{{ route('order.show', $order->id) }}">{{$order->id}}</a></td>
+                    <td>{{$order->id}}</td>
                     <td>{{$order->status}}</td>
+                    <td><button type="button" onclick="location.replace('{{route('order.show', $order->id)}}')" class="btn btn-primary">Show</button></td>
                 </tr>
             @endforeach
         </tbody>

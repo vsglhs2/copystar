@@ -15,12 +15,16 @@ class IndexController extends Controller
         if (!$order) return view('basket.blank');
         $orderId = $order->id;
         $orderProducts = OrderProducts::where('order_id', $order->id)->get();
+        $total = 0;
 
         foreach ($orderProducts as $current) {
             $product = Product::find($current->product_id);
             $current->title = $product->title;
             $current->cost = $product->cost;
+            $current->total = $current->cost * $current->amount;
+            $total += $current->total;
         } 
-        return view('basket.index', compact('orderProducts', 'orderId'));
+
+        return view('basket.index', compact('orderProducts', 'orderId', 'total'));
     }
 }

@@ -27,8 +27,18 @@ Route::prefix('admin')->group(function() {
     Route::middleware('admin')->group(function () {
         Route::get('/', App\Http\Controllers\Admin\Product\IndexController::class);
         Route::get('/products', App\Http\Controllers\Admin\Product\IndexController::class)->name('admin.product.index');
+        Route::get('/products/create', App\Http\Controllers\Admin\Product\CreateController::class)->name('admin.product.create');        
+        Route::get('/products/{product}', App\Http\Controllers\Admin\Product\ShowController::class)->name('admin.product.show');
+        Route::post('/products', App\Http\Controllers\Admin\Product\StoreController::class)->name('admin.product.store');
+        Route::get('/products/{product}/edit', App\Http\Controllers\Admin\Product\EditController::class)->name('admin.product.edit');
+        Route::patch('/products/{product}', App\Http\Controllers\Admin\Product\UpdateController::class)->name('admin.product.update');
+        Route::delete('/products/{product}', App\Http\Controllers\Admin\Product\DestroyController::class)->name('admin.product.destroy');
         Route::get('/categories', App\Http\Controllers\Admin\Category\IndexController::class)->name('admin.category.index');
+        Route::delete('/categories/{category}', App\Http\Controllers\Admin\Category\DestroyController::class)->name('admin.category.destroy');
+        Route::post('/categories', App\Http\Controllers\Admin\Category\StoreController::class)->name('admin.category.store');
         Route::get('/orders', App\Http\Controllers\Admin\Order\IndexController::class)->name('admin.order.index');
+        Route::patch('/orders/accept', App\Http\Controllers\Admin\Order\AcceptController::class)->name('admin.order.accept');
+        Route::patch('/orders/deny', App\Http\Controllers\Admin\Order\DenyController::class)->name('admin.order.deny');
     });
 });
 

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('production_country');
             $table->string('model');
             $table->year('production_year');
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedInteger('amount')->default(0);
             $table->timestamps();
         });
