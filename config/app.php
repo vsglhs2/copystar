@@ -95,6 +95,8 @@ return [
     |
     */
 
+    'log' => 'errorlog',
+
     'fallback_locale' => 'en',
 
     /*
